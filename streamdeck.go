@@ -377,7 +377,7 @@ func toJPEG(img image.Image) ([]byte, error) {
 	}
 
 	buffer := bytes.NewBuffer([]byte{})
-	err := jpeg.Encode(buffer, flipped, nil)
+	err := jpeg.Encode(buffer, flipped, &jpeg.Options{Quality: 100})
 	if err != nil {
 		return nil, err
 	}
