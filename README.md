@@ -1,5 +1,10 @@
 # streamdeck
 
+[![Latest Release](https://img.shields.io/github/release/muesli/streamdeck.svg)](https://github.com/muesli/streamdeck/releases)
+[![Build Status](https://github.com/muesli/streamdeck/workflows/build/badge.svg)](https://github.com/muesli/streamdeck/actions)
+[![Go ReportCard](https://goreportcard.com/badge/muesli/streamdeck)](https://goreportcard.com/report/muesli/streamdeck)
+[![GoDoc](https://godoc.org/github.com/golang/gddo?status.svg)](https://pkg.go.dev/github.com/muesli/streamdeck)
+
 A CLI application and Go library to control your Elgato Stream Deck on Linux.
 
 If you're looking for a complete Linux service to control your StreamDeck, check
@@ -8,12 +13,12 @@ library.
 
 ## Installation
 
-Make sure you have a working Go environment (Go 1.9 or higher is required).
+Make sure you have a working Go environment (Go 1.11 or higher is required).
 See the [install instructions](http://golang.org/doc/install.html).
 
 To install streamdeck, simply run:
 
-    go get github.com/muesli/streamdeck/cmd/...
+    go get github.com/muesli/streamdeck
 
 ## Configuration
 
@@ -24,6 +29,8 @@ regular user. Edit `/etc/udev/rules.d/99-streamdeck.rules` and add these lines:
 SUBSYSTEM=="usb", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="0060", MODE:="666", GROUP="plugdev"
 SUBSYSTEM=="usb", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="0063", MODE:="666", GROUP="plugdev"
 SUBSYSTEM=="usb", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="006c", MODE:="666", GROUP="plugdev"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="006d", MODE:="666", GROUP="plugdev"
+SUBSYSTEM=="usb", ATTRS{idVendor}=="0fd9", ATTRS{idProduct}=="0080", MODE:="666", GROUP="plugdev"
 ```
 
 Make sure your user is part of the `plugdev` group and reload the rules with
@@ -55,9 +62,3 @@ Reset the device:
 ```
 streamdeck-cli reset
 ```
-
-## Development
-
-[![GoDoc](https://godoc.org/github.com/golang/gddo?status.svg)](https://godoc.org/github.com/muesli/streamdeck)
-[![Build Status](https://travis-ci.org/muesli/streamdeck.svg?branch=master)](https://travis-ci.org/muesli/streamdeck)
-[![Go ReportCard](http://goreportcard.com/badge/muesli/streamdeck)](http://goreportcard.com/report/muesli/streamdeck)
