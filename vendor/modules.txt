@@ -1,0 +1,19 @@
+# github.com/bearsh/hid v1.4.2-0.20220627123055-35af594cb5a7
+## explicit
+github.com/bearsh/hid
+github.com/bearsh/hid/hidapi
+github.com/bearsh/hid/hidapi/hidapi
+github.com/bearsh/hid/hidapi/libusb
+github.com/bearsh/hid/hidapi/linux
+github.com/bearsh/hid/hidapi/mac
+github.com/bearsh/hid/hidapi/windows
+github.com/bearsh/hid/libusb
+github.com/bearsh/hid/libusb/libusb
+github.com/bearsh/hid/libusb/libusb/os
+# golang.org/x/image v0.0.0-20200119044424-58c23975cae1
+## explicit
+golang.org/x/image/draw
+golang.org/x/image/math/f64
+# golang.org/x/sync v0.1.0
+## explicit
+golang.org/x/sync/semaphore
