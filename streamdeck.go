@@ -47,6 +47,7 @@ const (
     SCREEN_LONG_TAP
     SCREEN_SWIPE
     KEY_PRESS
+    KEY_RELEASE
 )
 
 type InputEvent struct {
@@ -84,9 +85,9 @@ type IHidDevice interface {
 }
 
 type HidDevice struct {
-    Device *hid.Device
-    info   hid.DeviceInfo
-    WriteSem  *semaphore.Weighted
+    Device   *hid.Device
+    info     hid.DeviceInfo
+    WriteSem *semaphore.Weighted
 }
 
 func (h *HidDevice) Open() (*hid.Device, error) {
@@ -842,8 +843,6 @@ func basicHandleInput(d *Device, cback func(event InputEvent)) {
     for {
         keyBuff := make([]byte, d.KeyStateOffset+len(d.KeyState))
 
-        copy(d.KeyState, keyBuff[d.KeyStateOffset:])
-
         if _, err := d.Device.Read(keyBuff); err != nil {
             panic(err)
         }
@@ -851,10 +850,19 @@ func basicHandleInput(d *Device, cback func(event InputEvent)) {
         for i := d.KeyStateOffset; i < len(keyBuff); i++ {
             keyIndex := uint8(i - d.KeyStateOffset)
             if keyBuff[i] != d.KeyState[keyIndex] {
-                cback(InputEvent{
-                    EventType: KEY_PRESS,
-                    Index:     d.TranslateKeyIndex(keyIndex, d.Columns),
-                })
+                if keyBuff[i] == 0x01 {
+                    d.KeyState[keyIndex] = 0x01
+                    cback(InputEvent{
+                        EventType: KEY_PRESS,
+                        Index:     d.TranslateKeyIndex(keyIndex, d.Columns),
+                    })
+                } else {
+                    d.KeyState[keyIndex] = 0x00
+                    cback(InputEvent{
+                        EventType: KEY_RELEASE,
+                        Index:     d.TranslateKeyIndex(keyIndex, d.Columns),
+                    })
+                }
             }
         }
     }
