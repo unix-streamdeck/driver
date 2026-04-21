@@ -1,5 +1,7 @@
 github.com/bearsh/hid v1.6.0 h1:eOBSuF2pg+SCytKGuGjOzZx73xQ72gevJ5IlFvzgfGE=
 github.com/bearsh/hid v1.6.0/go.mod h1:7JhM3r/tm4ALu4WWFqshda+Q6aIcnGRpUR08sx/dHdc=
+github.com/boxes-ltd/imaging v1.7.5 h1:k4kYxJEhysoGhEEN1IEeKoSbnG8/8snjj7M48Ok0fnk=
+github.com/boxes-ltd/imaging v1.7.5/go.mod h1:+8H+oRvis3InOFtTpcoCCB1RDXqo6p9tQBtjZfWnrC8=
 golang.org/x/image v0.37.0 h1:ZiRjArKI8GwxZOoEtUfhrBtaCN+4b/7709dlT6SSnQA=
 golang.org/x/image v0.37.0/go.mod h1:/3f6vaXC+6CEanU4KJxbcUZyEePbyKbaLoDOe4ehFYY=
 golang.org/x/sys v0.42.0 h1:omrd2nAlyT5ESRdCLYdm3+fMfNFE/+Rf4bDIQImRJeo=

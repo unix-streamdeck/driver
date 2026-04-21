@@ -9,10 +9,17 @@ github.com/bearsh/hid/hidapi/windows
 github.com/bearsh/hid/libusb/libusb
 github.com/bearsh/hid/libusb/libusb/os
 github.com/bearsh/hid/libusb/libusb/os/udev
+# github.com/boxes-ltd/imaging v1.7.5
+## explicit; go 1.24.0
+github.com/boxes-ltd/imaging
 # golang.org/x/image v0.37.0
 ## explicit; go 1.25.0
+golang.org/x/image/bmp
+golang.org/x/image/ccitt
 golang.org/x/image/draw
 golang.org/x/image/math/f64
+golang.org/x/image/tiff
+golang.org/x/image/tiff/lzw
 # golang.org/x/sys v0.42.0
 ## explicit; go 1.25.0
 golang.org/x/sys/windows
